@@ -5,6 +5,8 @@ import { PorPaisComponent } from './pages/por-pais/por-pais.component';
 import { PorRegionComponent } from './pages/por-region/por-region.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { FormsModule } from '@angular/forms';
+import { CountryTableComponent } from './components/country-table/country-table.component';
+import { FormComponent } from './components/form/form.component';
 
 
 
@@ -14,6 +16,8 @@ import { FormsModule } from '@angular/forms';
     PorPaisComponent,
     PorRegionComponent,
     VerPaisComponent,
+    CountryTableComponent,
+    FormComponent,
   ],
   imports: [
     CommonModule,

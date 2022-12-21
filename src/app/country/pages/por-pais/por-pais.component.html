@@ -1,47 +1,14 @@
 <h2>Buscar pais</h2>
 <hr>
 
-<form autocomplete="off"
-      (ngSubmit)="onSearch()"
->
-    <input type="text"
-           name="query"
-           class="form-control"
-           placeholder="Buscar pais..."
-           [(ngModel)]="query"
-
-    >
-</form>
+    <app-form (onEnter)="this.onSearch( $event )"></app-form>
 
 <hr>
 
-<div class="alert alert-danger">
-    No se encontro nada con el termino: Sadasd
+<div *ngIf="this.isError" class="alert alert-danger">
+    No se encontro nada con el termino: {{ query }}
 </div>
 
-<div class="row">
-    <div class="col">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Bandera</th>
-                    <th>Nombre</th>
-                    <th>Poblacion</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>bandera</td>
-                    <td>Canada</td>
-                    <td>55 millones</td>
-                    <td>
-                        <a href="/pais/canada">Ver...</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div *ngIf="this.countries.length > 0">
+   <app-country-table [countries]="this.countries" ></app-country-table>
 </div>
