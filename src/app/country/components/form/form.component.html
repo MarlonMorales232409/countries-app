@@ -4,8 +4,8 @@
     <input type="text"
            name="query"
            class="form-control"
-           placeholder="Buscar pais..."
+           [placeholder]="this.placeholder"
            [(ngModel)]="query"
-
+           (input)="this.onPressedKey()"
     >
 </form>

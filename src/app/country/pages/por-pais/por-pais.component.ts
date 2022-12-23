@@ -30,5 +30,11 @@ export class PorPaisComponent {
     })
   }
 
+  onSuggestions( event: string){
+    this.isError = false
+
+    
+  }
+
   constructor(private countryService: CountryService){}
 }

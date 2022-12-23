@@ -7,6 +7,7 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { FormsModule } from '@angular/forms';
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { FormComponent } from './components/form/form.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,6 +23,7 @@ import { FormComponent } from './components/form/form.component';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule
   ],
   exports: [
     PorCapitalComponent,

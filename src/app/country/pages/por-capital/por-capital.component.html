@@ -1,1 +1,18 @@
-<p>por-capital works!</p>
+<h2>Por capital</h2>
+<hr>
+
+    <app-form 
+        (onEnter)="this.onSearch( $event )"
+        (onDebounce)="this.onSuggestions( $event )"
+        placeholder="Buscar pais por capital..."
+    ></app-form>
+
+<hr>
+
+<div *ngIf="this.isError" class="alert alert-danger">
+    No se encontro nada con el termino: {{ query }}
+</div>
+
+<div *ngIf="this.countries.length > 0">
+   <app-country-table [countries]="this.countries" ></app-country-table>
+</div>

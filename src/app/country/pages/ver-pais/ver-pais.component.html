@@ -1,1 +1,51 @@
-<p>ver-pais works!</p>
+
+<div *ngIf="!this.country else countryData" 
+    class="alert alert-info">
+    Cargando datos...
+</div>
+
+<ng-template #countryData>
+
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ this.country.name.common }}</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <img [src]="this.country.flags.svg" alt="flag" class="img-thumbnail">
+        </div>
+
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><b>Capital:</b> {{ this.country.capital }}</li>
+                <li class="list-group-item"><b>Continente:</b> {{ this.country.continents[0] }}</li>
+                <li class="list-group-item"><b>Poblacion:</b> {{ this.country.population | number }}</li>
+                <li class="list-group-item"><b>Codigo numerico:</b> {{ this.country.ccn3 }}</li>
+                <li class="list-group-item"><b>Codigo alpha3:</b> {{ this.country.cca2 }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Traduciones</h3>
+        <div class="col">
+            <span class="badge bg-primary mr-1">{{ country.translations.ara.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.bre.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.ces.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.cym.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.deu.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.est.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.fin.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.fra.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.hrv.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.hum.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.ita.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.kor.official }}</span>
+            <span class="badge bg-primary mr-1">{{ country.translations.jpn.official }}</span>
+        </div>
+    </div>
+
+</ng-template>
