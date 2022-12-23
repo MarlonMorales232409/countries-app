@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styles: [
-    `li {cursor: pointer}`
+      'li {cursor: pointer}',
+      'h2 {cursor: pointer}',
   ]
 })
 export class SidebarComponent {

@@ -1,13 +1,30 @@
-<h2>Buscar pais</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>Buscar pais</h2>
+    <hr>
 
     <app-form 
         (onEnter)="this.onSearch( $event )"
         (onDebounce)="this.onSuggestions( $event )"
         placeholder="Buscar pais..."
     ></app-form>
+    <ul *ngIf="showSuggestions"
+        class="list-group">
+        <li *ngFor="let country of suggestedCountries"
+            [routerLink]="['/pais/', country.cca2]"
+            class="list-group-item list-group-item-action link-primary"
+        >
+            {{ country.name.common }}
+        </li>
+        <li 
+            class="list-group-item list-group-item-action link-primary"
+            (click)="this.onSearch( query )"
+            >
+                Buscar termino "{{ query }}"
+        </li>
+    </ul>
 
-<hr>
+    <hr>
+</div>
 
 <div *ngIf="this.isError" class="alert alert-danger">
     No se encontro nada con el termino: {{ query }}

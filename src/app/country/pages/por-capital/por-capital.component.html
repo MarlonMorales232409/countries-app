@@ -1,18 +1,18 @@
-<h2>Por capital</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>Por capital</h2>
+    <hr>
+        <app-form 
+            (onEnter)="this.onSearch( $event )"
+            (onDebounce)="this.onSuggestions( $event )"
+            placeholder="Buscar pais por capital..."
+        ></app-form>
+    <hr>
+</div>
 
-    <app-form 
-        (onEnter)="this.onSearch( $event )"
-        (onDebounce)="this.onSuggestions( $event )"
-        placeholder="Buscar pais por capital..."
-    ></app-form>
-
-<hr>
-
-<div *ngIf="this.isError" class="alert alert-danger">
+<div *ngIf="this.isError">
     No se encontro nada con el termino: {{ query }}
 </div>
 
-<div *ngIf="this.countries.length > 0">
+<div *ngIf="this.countries.length > 0" class="animate__animated animate__fadeInLeft">
    <app-country-table [countries]="this.countries" ></app-country-table>
 </div>

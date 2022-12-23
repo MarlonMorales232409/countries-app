@@ -1,17 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CountryService } from '../../services/country.service';
-import { HttpClient } from '@angular/common/http';
 import { Country } from '../../interfaces/country.interface';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
+  styles: [`li {cursor: pointer}`]
 })
 export class PorPaisComponent {
   
-  query     : string = ''
-  isError   : boolean = false
-  countries : Country[] = []
+  suggestedCountries : Country[] = []
+  countries          : Country[] = []
+  query              : string = ''
+  isError            : boolean = false
+  showSuggestions    : boolean = false
 
  
 
@@ -31,8 +34,17 @@ export class PorPaisComponent {
   }
 
   onSuggestions( event: string){
-    this.isError = false
 
+    this.isError = false
+    this.query = event
+
+    this.countryService.searchCountry(event)
+    .subscribe({
+      next: (resp) => this.suggestedCountries = resp.splice(0,5),
+      error: () => this.suggestedCountries = []
+    })
+
+    this.showSuggestions = event.trim().length >= 1 ? true : false
     
   }
 
